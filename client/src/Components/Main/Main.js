@@ -26,7 +26,7 @@ export default function Main() {
       }}>
         <div className="Tilt-inner">
           <div className="sign">
-            <span className="sign__word">Hi, i - full-stack</span>
+            <span className="sign__word">Hi, i'm - full-stack</span>
             <span className="sign__word">web-developer.</span>
           </div><br/><br/><br/>
           <a className="link link-transition" href="/p">Portfolio &rarr;</a>
