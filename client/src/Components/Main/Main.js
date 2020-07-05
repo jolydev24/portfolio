@@ -6,12 +6,12 @@ import image from "../Main/Assets/wall.jpg"
 export default function Main() {
   const styles = {
     fontSize: '1rem',
+    fontFamily: 'Vibur, cursive',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundColor: '#141414',
     backgroundImage: `url(${image})`,
-    fontFamily: 'Exo 2, sans-serif',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -21,17 +21,17 @@ export default function Main() {
   return (
     <div className="neon-container" style={styles}>
       <Tilt className="Tilt" options={{
-        perspective: 1000,
-        speed: 300
+        perspective: 100000000,
+        speed: 9000
       }}>
         <div className="Tilt-inner">
-          <h1 className="neon" spellCheck="false">jolydev - <br/>
-            full-stack<br/>
-            developer.<br/>
-          </h1>
+          <div className="sign">
+            <span className="sign__word">Hi, i - full-stack</span>
+            <span className="sign__word">web-developer.</span>
+          </div><br/><br/><br/>
+          <a className="link link-transition" href="/p">Portfolio &rarr;</a>
         </div>
       </Tilt>
-
     </div>
   )
 }
