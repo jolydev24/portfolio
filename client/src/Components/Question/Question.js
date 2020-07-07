@@ -23,10 +23,12 @@ class Question extends Component {
   }
 
   handleSendContact(event) {
-    const xhr = new XMLHttpRequest()
-
-    xhr.open('POST', process.env.REACT_APP_FECTH_API)
-    xhr.send(JSON.stringify({contact: this.state.contact}))
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({contact: this.state.contact})
+    };
+    fetch(process.env.REACT_APP_FECTH_API, requestOptions)
 
     event.preventDefault()
   }

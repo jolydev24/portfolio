@@ -1,18 +1,21 @@
-let express = require("express")
-let app = express()
+let express = require("express"),
+ app = express(),
+ bodyParser = require("body-parser")
+
+app.use(bodyParser.json())
 
 require("dotenv").config("../.env")
 
 app.options('*', (req, res) => {
-  res.set('Access-Control-Allow-Origin', '*');
-  res.set("Access-Control-Allow-Headers", "Content-Type");
-  res.send('ok');
-});
+  res.set('Access-Control-Allow-Origin', '*')
+  res.set("Access-Control-Allow-Headers", "Content-Type")
+  res.send('ok')
+})
 
 app.post('/api/contact/store', function(req, res) {
-  console.log(req.postMessage())
+  console.log(req.body)
 })
 
 app.listen(process.env.EXPRESS_APP_PORT, function () {
-  console.log(`Example app listening on port ${process.env.EXPRESS_APP_PORT}!`);
-});
+  console.log(`Example app listening on port ${process.env.EXPRESS_APP_PORT}!`)
+})
