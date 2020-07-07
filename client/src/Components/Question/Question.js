@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
-import {Form, Button} from "react-bootstrap"
+import {Form} from "react-bootstrap"
+import NeonContainer from "../Neon/Containers/NeonContainer"
+import NeonButton from "../Neon/Buttons/NeonButton"
+import NeonInput from "../Neon/Forms/NeonInput"
 
 class Question extends Component {
   constructor(props) {
@@ -11,7 +14,6 @@ class Question extends Component {
     this.state = {
       contact: ''
     }
-    console.log(process.env.REACT_APP_FECTH_API)
   }
 
   handleChangeContact(event) {
@@ -32,25 +34,21 @@ class Question extends Component {
   render() {
     return (
       <Form onSubmit={this.handleSendContact}>
-        <div className="sign">
+        <NeonContainer>
           <Form.Group>
-            <Form.Control
+            <NeonInput
               type="text"
               className="sign__input"
               placeholder="You contact..."
               onChange={this.handleChangeContact}
             />
-            <Button
-              style={{
-                cursor: 'pointer'
-              }}
+            <NeonButton
               className="sign__button"
               type="submit"
-            >
-              {'    '}Send
-            </Button>
+              text={'           Send'}
+            />
           </Form.Group>
-        </div>
+        </NeonContainer>
       </Form>
     )
   }

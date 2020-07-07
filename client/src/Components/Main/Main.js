@@ -1,9 +1,12 @@
 import React, {Component} from 'react'
 import "../../App.css"
 import Tilt from "react-tilt"
-import image from "../Main/Assets/wall.jpg"
 import Question from "../Question/Question"
 import {Container} from "react-bootstrap";
+import NeonContainer from "../Neon/Containers/NeonContainer"
+import TextContainer from "../Neon/Containers/TextContainer"
+import NeonText from "../Neon/NeonText";
+import NeonLink from "../Neon/NeonLink";
 
 export default class Main extends Component {
   constructor(props) {
@@ -20,45 +23,31 @@ export default class Main extends Component {
     })
   }
 
-  styles = {
-    fontSize: '1rem',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor: '#141414',
-    backgroundImage: `url(${image})`,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: '100vh',
-  }
-
   render() {
     return (
       <Container>
-        <div className="neon-container" style={this.styles}>
-          <Tilt className="Tilt" options={{
-            speed: 90000
-          }}>
-            {this.state.textEdited ? (
-              <Question/>
-            ) : (
-              <>
-                <div className="sign">
-                  <div
-                    className="sign__word"
+        <NeonContainer>
+          <TextContainer>
+            <Tilt className="Tilt" options={{speed: 90000}}>
+              {this.state.textEdited ? (
+                <Question/>
+              ) : (
+                <>
+                  <NeonText
+                    neonText="Hi, i'm - full-stack web-developer."
                     style={{cursor: 'pointer'}}
                     onClick={this.textEdit.bind(this)}
-                  >Hi, i'm -
-                    full-stack<br/>web-developer.
-                  </div>
-                </div>
-                <br/><br/><br/>
-                <a className="link link-transition" href="/p">Portfolio &rarr;</a>
-              </>
-            )}
-          </Tilt>
-        </div>
+                  />
+                  <br/><br/><br/>
+                  <NeonLink
+                    href="/p"
+                    neonText="Portfolio &rarr;"
+                  />
+                </>
+              )}
+            </Tilt>
+          </TextContainer>
+        </NeonContainer>
       </Container>
     )
   }
