@@ -1,10 +1,10 @@
-#Start app.
-start:
+# Start app.
+run:
 	@sudo docker-compose up
 
 # Stop app.
 stop:
-	@sudo docker-compose down -v
+	@sudo docker-compose down
 
 # Show services.
 services:
