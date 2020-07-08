@@ -17,5 +17,5 @@ app.post('/api/contact/store', function(req, res) {
 })
 
 app.listen(process.env.EXPRESS_APP_PORT, function () {
-  console.log(`Example app listening on port ${process.env.EXPRESS_APP_PORT}!`)
+  console.log(`Api work on http://localhost:${process.env.EXPRESS_APP_PORT}!`)
 })
