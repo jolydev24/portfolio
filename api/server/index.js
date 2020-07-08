@@ -12,10 +12,10 @@ app.options('*', (req, res) => {
   res.send('ok')
 })
 
-app.post('/api/contact/store', function(req, res) {
+app.post('/api/contact/store', (req, res) => {
   console.log(req.body)
 })
 
-app.listen(process.env.EXPRESS_APP_PORT, function () {
-  console.log(`Api work on http://localhost:${process.env.EXPRESS_APP_PORT}!`)
+app.listen(process.env.EXPRESS_APP_PORT, () => {
+  console.log(`Api started...`)
 })
