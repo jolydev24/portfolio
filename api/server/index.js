@@ -17,12 +17,10 @@ app.post('/api/contact/store', (req, res) => {
   db.get().db("users").collection("contacts").insertOne(req.body, (err, result) => {
     err && console.log(err)
 
-    console.log("Insert new request.", result.ops)
+    console.log("Insert new request.")
 
     db.get().close()
   })
-
-  console.log(req.body)
 })
 
 db.connect(process.env.DB_URL, (err, database) => {

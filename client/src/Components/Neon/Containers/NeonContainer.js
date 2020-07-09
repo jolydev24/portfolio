@@ -1,5 +1,4 @@
 import React from 'react'
-import image from "../../Main/Assets/wall.jpg"
 
 function NeonContainer(props) {
   const styles = {
@@ -7,12 +6,12 @@ function NeonContainer(props) {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    backgroundColor: '#141414',
-    backgroundImage: `url(${image})`,
+    backgroundColor: props.transparent ? 'rgba(0, 0, 0, 0)' : '#141414',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    minHeight: '100vh'
+    minHeight: '100vh',
+    backgroundImage: props.background,
   }
 
   return (

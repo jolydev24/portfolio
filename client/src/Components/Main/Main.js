@@ -2,11 +2,12 @@ import React, {Component} from 'react'
 import "../../App.css"
 import Tilt from "react-tilt"
 import Question from "../Question/Question"
-import {Container} from "react-bootstrap";
+import {Container} from "react-bootstrap"
 import NeonContainer from "../Neon/Containers/NeonContainer"
 import TextContainer from "../Neon/Containers/TextContainer"
-import NeonText from "../Neon/NeonText";
-import NeonLink from "../Neon/NeonLink";
+import NeonText from "../Neon/NeonText"
+import NeonLink from "../Neon/NeonLink"
+import image from "./Assets/wall.jpg"
 
 export default class Main extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ export default class Main extends Component {
   render() {
     return (
       <Container>
-        <NeonContainer>
+        <NeonContainer background={`url(${image})`}>
           <TextContainer>
             <Tilt className="Tilt" options={{speed: 90000}}>
               {this.state.textEdited ? (
