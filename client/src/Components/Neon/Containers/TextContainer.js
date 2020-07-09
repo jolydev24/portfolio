@@ -8,7 +8,7 @@ const styles = {
   alignItems: 'center'
 }
 
-function TextContainer(props) {
+const TextContainer = props => {
   return (
     <div style={styles}>
       {props.children}

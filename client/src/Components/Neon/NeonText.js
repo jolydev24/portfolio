@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-class NeonText extends Component {
-  styles = {
+const NeonText = props => {
+  const styles = {
     fontSize: '2rem',
     textAlign: 'center',
     lineHeight: '1',
@@ -9,13 +9,11 @@ class NeonText extends Component {
     animation: 'neon .2s ease-in-out infinite alternate'
   }
 
-  render() {
-    return (
-      <div style={this.styles} className="sign__word" onClick={this.props.onClick}>
-        {this.props.neonText}
-      </div>
-    )
-  }
+  return (
+    <div style={styles} className="sign__word" onClick={props.onClick}>
+      {props.neonText}
+    </div>
+  )
 }
 
 export default NeonText

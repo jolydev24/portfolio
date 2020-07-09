@@ -12,13 +12,16 @@ const styles = {
   animation: 'neon .5s ease-in-out infinite alternate'
 }
 
-function NeonInput(props) {
+const NeonInput = props => {
   return (
     <Form.Control
       type={props.type}
       style={styles}
       placeholder={props.placeholder}
+      onClick={props.onClick}
       onChange={props.onChange}
+      required
+      name={props.name}
     />
   )
 }

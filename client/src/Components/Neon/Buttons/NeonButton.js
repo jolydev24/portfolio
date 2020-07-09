@@ -15,7 +15,7 @@ const styles = {
   cursor: 'pointer'
 }
 
-function NeonButton(props) {
+const NeonButton = props => {
   return (
     <Button style={styles} type={props.type}>
       {props.text}

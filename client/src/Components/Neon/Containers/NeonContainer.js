@@ -1,6 +1,6 @@
 import React from 'react'
 
-function NeonContainer(props) {
+const NeonContainer = props => {
   const styles = {
     fontSize: '1rem',
     backgroundSize: 'cover',

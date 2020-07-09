@@ -5,20 +5,24 @@ import NeonButton from "../Neon/Buttons/NeonButton"
 import NeonInput from "../Neon/Forms/NeonInput"
 
 export default function Question() {
-  const [contact, setContact] = useState('')
+  const [question, setQuestion] = useState('')
+  const [showEmailInput, setShowEmailInput] = useState(false)
 
-  const handleChangeContact = (event) => {
-    setContact({
-      contact: event.target.value
+  const handleChangeQuestion = (event) => {
+    const {name, value} = event.target
+    setQuestion({
+      ...question,
+      [name]: value
     })
   }
 
   const handleSendContact = (event) => {
+    console.log(question)
     const requestOptions = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({contact})
-    };
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({question})
+    }
     fetch(process.env.REACT_APP_FECTH_API, requestOptions)
 
     event.preventDefault()
@@ -32,8 +36,19 @@ export default function Question() {
             type="text"
             className="sign__input"
             placeholder="You contact..."
-            onChange={handleChangeContact}
+            name="contact"
+            onClick={() => setShowEmailInput(true)}
+            onChange={handleChangeQuestion}
           />
+          {showEmailInput &&
+            <NeonInput
+              type="email"
+              className="sign__input"
+              placeholder="You email..."
+              name="email"
+              onChange={handleChangeQuestion}
+            />
+          }
           <NeonButton
             className="sign__button"
             type="submit"

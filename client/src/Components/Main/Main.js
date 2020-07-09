@@ -9,7 +9,7 @@ import NeonText from "../Neon/NeonText"
 import NeonLink from "../Neon/NeonLink"
 import image from "./Assets/wall.jpg"
 
-export default function Main() {
+const Main = () => {
   const [textEdited, setEditedText] = useState(false)
   return (
     <Container>
@@ -36,3 +36,5 @@ export default function Main() {
     </Container>
   )
 }
+
+export default Main
