@@ -1,5 +1,3 @@
-require("dotenv").config({path: __dirname + '/.env'})
-
 let MongoClient = require('mongodb').MongoClient;
 
 let state = {
