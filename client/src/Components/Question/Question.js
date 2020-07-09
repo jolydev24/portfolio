@@ -1,63 +1,46 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import {Form} from "react-bootstrap"
 import NeonContainer from "../Neon/Containers/NeonContainer"
 import NeonButton from "../Neon/Buttons/NeonButton"
 import NeonInput from "../Neon/Forms/NeonInput"
 
-class Question extends Component {
-  constructor(props) {
-    super(props)
+export default function Question() {
+  const [contact, setContact] = useState('')
 
-    this.handleSendContact = this.handleSendContact.bind(this)
-    this.handleChangeContact = this.handleChangeContact.bind(this)
-
-    this.state = {
-      contact: ''
-    }
-  }
-
-  handleChangeContact(event) {
-    this.setState({
+  const handleChangeContact = (event) => {
+    setContact({
       contact: event.target.value
     })
   }
 
-  handleSendContact(event) {
+  const handleSendContact = (event) => {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({contact: this.state.contact})
+      body: JSON.stringify({contact})
     };
     fetch(process.env.REACT_APP_FECTH_API, requestOptions)
 
     event.preventDefault()
   }
 
-  render() {
-    return (
-      <Form onSubmit={this.handleSendContact}>
-<<<<<<< HEAD
-        <NeonContainer>
-=======
-        <NeonContainer background="none" transparent>
->>>>>>> 1a71b2964eedfd92750d00e5d096938e5c32542f
-          <Form.Group>
-            <NeonInput
-              type="text"
-              className="sign__input"
-              placeholder="You contact..."
-              onChange={this.handleChangeContact}
-            />
-            <NeonButton
-              className="sign__button"
-              type="submit"
-              text={'           Send'}
-            />
-          </Form.Group>
-        </NeonContainer>
-      </Form>
-    )
-  }
+  return (
+    <Form onSubmit={handleSendContact}>
+      <NeonContainer background="none" transparent>
+        <Form.Group>
+          <NeonInput
+            type="text"
+            className="sign__input"
+            placeholder="You contact..."
+            onChange={handleChangeContact}
+          />
+          <NeonButton
+            className="sign__button"
+            type="submit"
+            text={'           Send'}
+          />
+        </Form.Group>
+      </NeonContainer>
+    </Form>
+  )
 }
-
-export default Question

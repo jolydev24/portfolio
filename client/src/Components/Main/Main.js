@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import "../../App.css"
 import Tilt from "react-tilt"
 import Question from "../Question/Question"
@@ -9,47 +9,30 @@ import NeonText from "../Neon/NeonText"
 import NeonLink from "../Neon/NeonLink"
 import image from "./Assets/wall.jpg"
 
-export default class Main extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      textEdited: false
-    }
-  }
-
-  textEdit() {
-    this.setState({
-      textEdited: true
-    })
-  }
-
-  render() {
-    return (
-      <Container>
-        <NeonContainer background={`url(${image})`}>
-          <TextContainer>
+export default function Main() {
+  const [textEdited, setEditedText] = useState(false)
+  return (
+    <Container>
+      <NeonContainer background={`url(${image})`}>
+        <TextContainer>
+          {textEdited ? (
+            <Question/>
+            ) : (
             <Tilt className="Tilt" options={{speed: 90000}}>
-              {this.state.textEdited ? (
-                <Question/>
-              ) : (
-                <>
-                  <NeonText
-                    neonText="Hi, i'm - full-stack web-developer."
-                    style={{cursor: 'pointer'}}
-                    onClick={this.textEdit.bind(this)}
-                  />
-                  <br/><br/><br/>
-                  <NeonLink
-                    href="/p"
-                    neonText="Portfolio &rarr;"
-                  />
-                </>
-              )}
+              <NeonText
+                neonText="Hi, i'm - full-stack web-developer."
+                style={{cursor: 'pointer'}}
+                onClick={() => setEditedText(!textEdited)}
+              />
+              <br/><br/><br/>
+              <NeonLink
+                href="/p"
+                neonText="Portfolio &rarr;"
+              />
             </Tilt>
-          </TextContainer>
-        </NeonContainer>
-      </Container>
-    )
-  }
+          )}
+        </TextContainer>
+      </NeonContainer>
+    </Container>
+  )
 }
