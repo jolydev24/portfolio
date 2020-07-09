@@ -36,7 +36,11 @@ class Question extends Component {
   render() {
     return (
       <Form onSubmit={this.handleSendContact}>
+<<<<<<< HEAD
         <NeonContainer>
+=======
+        <NeonContainer background="none" transparent>
+>>>>>>> 1a71b2964eedfd92750d00e5d096938e5c32542f
           <Form.Group>
             <NeonInput
               type="text"
