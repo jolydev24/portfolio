@@ -1,17 +1,24 @@
 require("dotenv").config({path: __dirname + '/.env'})
 
-const MongoClient = require("mongodb").MongoClient,
-    mongoClient = new MongoClient(process.env.MONGO_URL, {
-        useUnifiedTopology: true,
-        useNewUrlParser: true
-    })
+let MongoClient = require('mongodb').MongoClient;
 
-let db
+let state = {
+  db: null
+}
 
-mongoClient.connect().then(client => {
-    db = client
-}).catch(err => {
-    console.log(`DB Connection Error: ${err.message}`)
-})
+exports.connect = (url, done) => {
+  if (state.db) {
+    return done();
+  }
 
-exports.db = db
+  MongoClient.connect(url, (err, db) => {
+    if (err) {
+      return done(err)
+    }
+    state.db = db
+    done()
+  })
+}
+exports.get = () => {
+  return state.db
+}

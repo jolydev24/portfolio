@@ -14,17 +14,21 @@ app.options('*', (req, res) => {
 })
 
 app.post('/api/contact/store', (req, res) => {
-  db.db.db("users").collection("contacts").insertOne(req.body, (err, result) => {
+  db.get().db("users").collection("contacts").insertOne(req.body, (err, result) => {
     err && console.log(err)
 
-    console.log(`Insert new request: ${result.ops}`)
+    console.log("Insert new request.", result.ops)
 
-    db.close()
+    db.get().close()
   })
 
   console.log(req.body)
 })
 
-app.listen(process.env.EXPRESS_APP_PORT, () => {
-  console.log(db)
+db.connect(process.env.DB_URL, (err, database) => {
+  err && console.log(err)
+
+  app.listen(process.env.EXPRESS_APP_PORT, () => {
+    console.log('API app started....');
+  })
 })
