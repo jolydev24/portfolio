@@ -10,6 +10,10 @@ stop:
 services:
 	@sudo docker ps
 
+# Restart.
+restart:
+	@sudo docker-compose restart
+
 #rm.
 rm:
 	@sudo docker rm $$(sudo docker ps -a -q) -f
