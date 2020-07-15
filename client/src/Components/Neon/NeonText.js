@@ -2,7 +2,7 @@ import React from 'react'
 
 const NeonText = props => {
   const styles = {
-    fontSize: '2rem',
+    fontSize: '3rem',
     textAlign: 'center',
     lineHeight: '1',
     color: '#c6e2ff',
