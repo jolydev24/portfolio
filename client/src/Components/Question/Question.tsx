@@ -24,7 +24,7 @@ const Question: React.SFC = () => {
 
   const handleSend = () => {
     console.log(questions)
-    const requestOptions = {
+    const requestOptions: object = {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({questions})
