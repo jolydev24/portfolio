@@ -13,22 +13,25 @@ const styles: object = {
 }
 
 interface INeonInput {
+  className?: string
   type: string;
   placeholder: string;
-  onClick: any;
+  onClick?: any;
   onChange: any;
   name: string;
 }
 
 const NeonInput: React.SFC<INeonInput> = ({
-    type,
-    placeholder,
-    onClick,
-    onChange,
-    name
-  }) => {
+  type,
+  placeholder,
+  onClick,
+  onChange,
+  name,
+  className
+}) => {
   return (
     <Form.Control
+      className={className}
       type={type}
       style={styles}
       placeholder={placeholder}

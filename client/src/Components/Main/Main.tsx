@@ -1,13 +1,12 @@
 import React, {useState} from 'react'
 import "../../App.css"
-import * as Tilt from "react-tilt"
-import Question from "../Question/Question"
 import {Col, Container, Row} from "react-bootstrap"
 import NeonContainer from "../Neon/Containers/NeonContainer"
 import TextContainer from "../Neon/Containers/TextContainer"
 import NeonText from "../Neon/NeonText"
 import NeonLink from "../Neon/NeonLink"
 import image from "./Assets/wall.jpg"
+import Question from "../Question/Question";
 
 const Main: React.FunctionComponent = () => {
   const [textEdited, setEditedText]: Array<any> = useState(false)
