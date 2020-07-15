@@ -28,3 +28,9 @@ html, body {
 .link-transition {
     transition: .7s;
 }
+
+.mainTextWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

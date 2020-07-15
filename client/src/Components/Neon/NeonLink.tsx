@@ -1,0 +1,17 @@
+import React from "react"
+
+interface INeonLink {
+  href: string;
+  neonText: string;
+  style?: object
+}
+
+const NeonLink: React.SFC<INeonLink> = ({href, neonText, style}) => {
+  return (
+    <a href={href} style={style} className="link  link-transition">
+      {neonText}
+    </a>
+  )
+}
+
+export default NeonLink

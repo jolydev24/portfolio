@@ -1,12 +1,12 @@
-import React from 'react'
+import * as React from 'react'
 import './App.css'
 import Main from "./Components/Main/Main"
 
 
-function App() {
+const App: React.SFC = () => {
   return (
     <div className="App">
-      <Main />
+      <Main/>
     </div>
   );
 }

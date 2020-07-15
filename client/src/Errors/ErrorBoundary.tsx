@@ -1,26 +1,26 @@
-import React from "react"
+import * as React from "react"
 import NeonContainer from "../Components/Neon/Containers/NeonContainer"
 import NeonText from "../Components/Neon/NeonText"
 import TextContainer from "../Components/Neon/Containers/TextContainer"
-import image from "../Components/Main/Assets/wall.jpg"
+import * as image from "../Components/Main/Assets/wall.jpg"
 
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { error: null, errorInfo: null }
+export default class ErrorBoundary extends React.Component {
+  public state = {
+    error: null,
+    errorInfo: null
   }
 
-  componentDidCatch(error, errorInfo) {
+  public componentDidCatch(error: Error, errorInfo: any) {
     this.setState({
       error: error,
       errorInfo: errorInfo
     })
   }
 
-  render() {
+  public render() {
     if (this.state.errorInfo) {
       return (
-        <NeonContainer background={`url(${image})`}>
+        <NeonContainer transparent={false} background={`url(${image})`}>
           <TextContainer>
             <NeonText
               neonText="505 - Something went wrong..."
@@ -33,5 +33,3 @@ class ErrorBoundary extends React.Component {
     return this.props.children
   }
 }
-
-export default ErrorBoundary

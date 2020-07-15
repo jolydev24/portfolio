@@ -1,7 +1,7 @@
-import React from 'react'
+import * as React from 'react'
 import {Button} from "react-bootstrap"
 
-const styles = {
+const styles: object = {
   fontFamily: 'Merienda One, cursive',
   border: 'none',
   padding: '0',
@@ -15,10 +15,14 @@ const styles = {
   cursor: 'pointer'
 }
 
-const NeonButton = props => {
+interface IButtonProps {
+  text?: string;
+}
+
+const NeonButton: React.SFC<IButtonProps> = ({text}) => {
   return (
-    <Button style={styles} type={props.type}>
-      {props.text}
+    <Button style={styles} type={'submit'}>
+      {text}
     </Button>
   )
 }

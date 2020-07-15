@@ -1,6 +1,6 @@
-import React from 'react'
+import * as React from 'react'
 
-const styles = {
+const styles: object = {
   minHeight: '100%',
   display: 'flex',
   flexDirection: 'column',
@@ -8,10 +8,14 @@ const styles = {
   alignItems: 'center'
 }
 
-const TextContainer = props => {
+interface ITextContainer {
+  children: object
+}
+
+const TextContainer: React.SFC<ITextContainer> = ({children}) => {
   return (
     <div style={styles}>
-      {props.children}
+      {children}
     </div>
   )
 }

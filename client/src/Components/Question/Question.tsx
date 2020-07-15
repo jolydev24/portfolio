@@ -1,35 +1,40 @@
-import React, {useState} from 'react'
+import * as React from 'react'
+import {useState} from 'react'
 import {Form} from "react-bootstrap"
 import NeonContainer from "../Neon/Containers/NeonContainer"
 import NeonButton from "../Neon/Buttons/NeonButton"
 import NeonInput from "../Neon/Forms/NeonInput"
 
-export default function Question() {
-  const [question, setQuestion] = useState('')
-  const [showEmailInput, setShowEmailInput] = useState(false)
+interface IQuestion {
+  name: any;
+  value: any;
+}
 
-  const handleChangeQuestion = (event) => {
-    const {name, value} = event.target
+const Question: React.SFC = () => {
+  const [questions, setQuestion]: Array<any> = useState('')
+  const [showEmailInput, setShowEmailInput]: Array<any> = useState(false)
+
+  const handleChange = (event: Event) => {
+    console.log(event.target)
     setQuestion({
-      ...question,
-      [name]: value
+      ...questions,
+      '': ''
     })
   }
 
-  const handleSendContact = (event) => {
-    console.log(question)
-    const requestOptions = {
+  const handleSend = () => {
+    console.log(questions)
+    const requestOptions: object = {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({question})
+      body: JSON.stringify({questions})
     }
+    // @ts-ignore
     fetch(process.env.REACT_APP_FECTH_API, requestOptions)
-
-    event.preventDefault()
   }
 
   return (
-    <Form onSubmit={handleSendContact}>
+    <Form onSubmit={handleSend}>
       <NeonContainer background="none" transparent>
         <Form.Group>
           <NeonInput
@@ -38,20 +43,18 @@ export default function Question() {
             placeholder="You contact..."
             name="contact"
             onClick={() => setShowEmailInput(true)}
-            onChange={handleChangeQuestion}
+            onChange={handleChange}
           />
           {showEmailInput &&
-            <NeonInput
-              type="email"
-              className="sign__input"
-              placeholder="You email..."
-              name="email"
-              onChange={handleChangeQuestion}
-            />
+          <NeonInput
+            type="email"
+            className="sign__input"
+            placeholder="You email..."
+            name="email"
+            onChange={handleChange}
+          />
           }
           <NeonButton
-            className="sign__button"
-            type="submit"
             text={'           Send'}
           />
         </Form.Group>
@@ -59,3 +62,5 @@ export default function Question() {
     </Form>
   )
 }
+
+export default Question
