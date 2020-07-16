@@ -3,6 +3,7 @@ import Contacts from "../models/contact"
 
 // Insert contact action.
 export let insertContact = (req: Request, res: Response) => {
+  console.log(req.body)
   // Create contacts model.
   let contact = new Contacts(req.body)
 

@@ -1,5 +1,6 @@
 import {Request, Response} from "express"
 import * as contactController from "./controllers/contact"
+import * as mongoose from "mongoose"
 
 require("dotenv").config("../.env")
 
@@ -20,7 +21,11 @@ app.options('*', (req: Request, res: Response) => {
 // Set add contact handle.
 app.post('/api/contact/store', contactController.insertContact)
 
-// Start app.
-app.listen(process.env.EXPRESS_APP_PORT, () => {
-  console.log('API app started....');
+mongoose.connect(process.env.DB_URL, {useNewUrlParser: true}).then(() => {
+  app.listen(process.env.EXPRESS_APP_PORT, () => {
+    console.log('API app started....')
+  })
+}).catch((err: any) => {
+  console.log(err.message)
+  process.exit(1)
 })

@@ -22,7 +22,8 @@ const Question: React.FC = () => {
     })
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
     const requestOptions: object = {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -35,7 +36,7 @@ const Question: React.FC = () => {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <form onSubmit={(e) => {handleSubmit(e)}}>
       <NeonContainer background="none" transparent>
         <Form.Group>
           <NeonInput
@@ -60,7 +61,7 @@ const Question: React.FC = () => {
           />
         </Form.Group>
       </NeonContainer>
-    </Form>
+    </form>
   )
 }
 

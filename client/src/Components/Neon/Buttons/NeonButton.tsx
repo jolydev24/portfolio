@@ -21,7 +21,7 @@ interface IButtonProps {
 
 const NeonButton: React.FC<IButtonProps> = ({text}) => {
   return (
-    <Button style={styles} type={'submit'}>
+    <Button style={styles} type="submit">
       {text}
     </Button>
   )
