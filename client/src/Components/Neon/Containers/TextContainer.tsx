@@ -12,7 +12,7 @@ interface ITextContainer {
   children: object
 }
 
-const TextContainer: React.SFC<ITextContainer> = ({children}) => {
+const TextContainer: React.FC<ITextContainer> = ({children}) => {
   return (
     <div style={styles}>
       {children}

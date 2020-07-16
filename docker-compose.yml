@@ -12,8 +12,12 @@ services:
     ports:
       - "3000:80"
     container_name: client
+    volumes:
+      - /client:/usr/src/app
   db:
     image: mongo
     ports:
       - "27017:27017"
-    container_name: db
+    container_name: mongo
+    volumes:
+      - /api/mongo/data:/usr/src/app

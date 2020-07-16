@@ -17,11 +17,11 @@ interface INeonInput {
   type: string;
   placeholder: string;
   onClick?: any;
-  onChange: any;
+  onChange?: any;
   name: string;
 }
 
-const NeonInput: React.SFC<INeonInput> = ({
+const NeonInput: React.FC<INeonInput> = ({
   type,
   placeholder,
   onClick,

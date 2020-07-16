@@ -6,7 +6,7 @@ interface INeonLink {
   style?: object
 }
 
-const NeonLink: React.SFC<INeonLink> = ({href, neonText, style}) => {
+const NeonLink: React.FC<INeonLink> = ({href, neonText, style}) => {
   return (
     <a href={href} style={style} className="link  link-transition">
       {neonText}

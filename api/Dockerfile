@@ -7,4 +7,6 @@ RUN npm install
 COPY . .
 
 EXPOSE 8080
-CMD [ "node", "server/index" ]
+
+RUN npm install -g typescript && tsc server/index.ts
+CMD [ "node", "server/index.js" ]

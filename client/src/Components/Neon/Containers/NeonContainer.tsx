@@ -7,7 +7,7 @@ interface INeonContainer {
 }
 
 
-const NeonContainer: React.SFC<INeonContainer> = ({transparent, background, children}) => {
+const NeonContainer: React.FC<INeonContainer> = ({transparent, background, children}) => {
   const styles: object = {
     fontSize: '1rem',
     backgroundSize: 'cover',

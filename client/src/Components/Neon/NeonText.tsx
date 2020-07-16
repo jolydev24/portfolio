@@ -14,7 +14,7 @@ const styles: object = {
   animation: 'neon .2s ease-in-out infinite alternate'
 }
 
-const NeonText: React.SFC<INeonText> = ({onClick, neonText}) => {
+const NeonText: React.FC<INeonText> = ({onClick, neonText}) => {
   return (
     <div style={styles} className="sign__word" onClick={onClick}>
       {neonText}

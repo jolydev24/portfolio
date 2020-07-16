@@ -2,6 +2,10 @@
 run:
 	@sudo docker-compose up
 
+# Up container.
+up:
+	@sudo docker-compose up $(filter-out $@,$(MAKECMDGOALS))
+
 # Stop app.
 stop:
 	@sudo docker-compose down

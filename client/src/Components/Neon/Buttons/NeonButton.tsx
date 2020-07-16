@@ -19,7 +19,7 @@ interface IButtonProps {
   text?: string;
 }
 
-const NeonButton: React.SFC<IButtonProps> = ({text}) => {
+const NeonButton: React.FC<IButtonProps> = ({text}) => {
   return (
     <Button style={styles} type={'submit'}>
       {text}

@@ -5,36 +5,37 @@ import NeonContainer from "../Neon/Containers/NeonContainer"
 import NeonButton from "../Neon/Buttons/NeonButton"
 import NeonInput from "../Neon/Forms/NeonInput"
 
-interface IQuestion {
-  name: any;
-  value: any;
-}
+const Question: React.FC = () => {
+  const [contact, setContact] = useState<any>('')
+  const [email, setEmail] = useState<any>('')
 
-const Question: React.SFC = () => {
-  const [questions, setQuestion]: Array<any> = useState('')
-  const [showEmailInput, setShowEmailInput]: Array<any> = useState(false)
+  const [showEmailInput, setShowEmailInput] = useState<boolean>(false)
 
-  const handleChange = (event: Event) => {
-    console.log(event.target)
-    setQuestion({
-      ...questions,
-      '': ''
+  const handleChangeContact = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setContact({
+      contact: event.target.value
+    })
+  }
+  const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail({
+      email: event.target.value
     })
   }
 
-  const handleSend = () => {
-    console.log(questions)
+  const handleSubmit = () => {
     const requestOptions: object = {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({questions})
+      body: JSON.stringify({
+        contact, email
+      })
     }
     // @ts-ignore
     fetch(process.env.REACT_APP_FECTH_API, requestOptions)
   }
 
   return (
-    <Form onSubmit={handleSend}>
+    <Form onSubmit={handleSubmit}>
       <NeonContainer background="none" transparent>
         <Form.Group>
           <NeonInput
@@ -43,7 +44,7 @@ const Question: React.SFC = () => {
             placeholder="You contact..."
             name="contact"
             onClick={() => setShowEmailInput(true)}
-            onChange={handleChange}
+            onChange={handleChangeContact}
           />
           {showEmailInput &&
           <NeonInput
@@ -51,7 +52,7 @@ const Question: React.SFC = () => {
             className="sign__input"
             placeholder="You email..."
             name="email"
-            onChange={handleChange}
+            onChange={handleChangeEmail}
           />
           }
           <NeonButton
