@@ -8,6 +8,4 @@ COPY . .
 
 EXPOSE 8080
 
-RUN npm i -g typescript && tsc server/index.ts
-
-CMD [ "node", "server/index.js" ]
+CMD [ "npm", "start" ]

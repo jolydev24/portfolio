@@ -1,7 +1,7 @@
 import * as React from "react"
 import {Form} from "react-bootstrap"
 
-const styles: object = {
+const styles: {} = {
   fontFamily: 'Merienda One, cursive',
   color: '#c6e2ff',
   border: 'none',

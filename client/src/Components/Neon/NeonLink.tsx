@@ -3,7 +3,7 @@ import React from "react"
 interface INeonLink {
   href: string;
   neonText: string;
-  style?: object
+  style?: {}
 }
 
 const NeonLink: React.FC<INeonLink> = ({href, neonText, style}) => {

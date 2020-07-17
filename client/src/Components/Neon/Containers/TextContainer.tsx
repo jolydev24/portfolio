@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-const styles: object = {
+const styles: {} = {
   minHeight: '100%',
   display: 'flex',
   flexDirection: 'column',
@@ -9,7 +9,7 @@ const styles: object = {
 }
 
 interface ITextContainer {
-  children: object
+  children: {}
 }
 
 const TextContainer: React.FC<ITextContainer> = ({children}) => {

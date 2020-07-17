@@ -3,10 +3,10 @@ import React from 'react'
 interface INeonText {
   onClick?: any;
   neonText: string;
-  style?: object;
+  style?: {};
 }
 
-const styles: object = {
+const styles: {} = {
   fontSize: '2rem',
   textAlign: 'center',
   lineHeight: '1',

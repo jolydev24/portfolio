@@ -23,16 +23,16 @@ const Question: React.FC = () => {
   }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    const requestOptions: object = {
+    console.log("Send: ", JSON.stringify(Object.assign<{}, {}>(contact, email)))
+    const requestOptions: {} = {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        contact, email
-      })
+      body: JSON.stringify(Object.assign<{}, {}>(contact, email))
     }
     // @ts-ignore
     fetch(process.env.REACT_APP_FECTH_API, requestOptions)
+
+    event.preventDefault()
   }
 
   return (

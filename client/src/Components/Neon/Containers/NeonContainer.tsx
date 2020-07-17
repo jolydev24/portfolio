@@ -3,12 +3,12 @@ import * as React from 'react'
 interface INeonContainer {
   transparent: boolean;
   background: string;
-  children: object;
+  children: {};
 }
 
 
 const NeonContainer: React.FC<INeonContainer> = ({transparent, background, children}) => {
-  const styles: object = {
+  const styles: {} = {
     fontSize: '1rem',
     backgroundSize: 'cover',
     backgroundPosition: 'center',

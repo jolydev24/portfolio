@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {Button} from "react-bootstrap"
 
-const styles: object = {
+const styles: {} = {
   fontFamily: 'Merienda One, cursive',
   border: 'none',
   padding: '0',

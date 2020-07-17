@@ -7,9 +7,6 @@ services:
     depends_on:
       - db
     container_name: api
-    volumes:
-      - .:/usr/src/app
-      - ./node_modules:/usr/src/app/node_modules
   client:
     build: ./client
     ports:
@@ -18,20 +15,9 @@ services:
   db:
     image: mongo
     container_name: db
-    env_file:
-      - api/.env
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=$MONGO_USERNAME
-      - MONGO_INITDB_ROOT_PASSWORD=$MONGO_PASSWORD
     ports:
       - "27017:27017"
     volumes:
       - ./api/mongo/data:/data/db
-    networks:
-      - portfolio-network
-networks:
-  portfolio-network:
-    driver: bridge
 volumes:
-  api:
-  node_modules:
+  db:
