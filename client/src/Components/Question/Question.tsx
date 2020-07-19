@@ -22,15 +22,20 @@ const Question: React.FC = () => {
     })
   }
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    console.log("Send: ", JSON.stringify(Object.assign<{}, {}>(contact, email)))
-    const requestOptions: {} = {
+  const sendConact = async () => {
+    const requestOptions = {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(Object.assign<{}, {}>(contact, email))
     }
+
     // @ts-ignore
-    fetch(process.env.REACT_APP_FECTH_API, requestOptions)
+    await fetch(process.env.REACT_APP_FETCH_API, requestOptions)
+  }
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    console.log("Send: ", JSON.stringify(Object.assign<{}, {}>(contact, email)))
+    sendConact().then(r => {})
 
     event.preventDefault()
   }

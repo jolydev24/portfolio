@@ -23,12 +23,12 @@ rm:
 	@sudo docker rm $$(sudo docker ps -a -q) -f
 
 #rmi all.
-rmi all:
+rmia:
 	@sudo docker rmi $$(sudo docker images -q) -f
 
 #rmi.
 rmi:
-	@sudo docker rmi $(filter-out $@,$(MAKECMDGOALS))
+	@sudo docker rmi $(filter-out $@,$(MAKECMDGOALS)) -f
 
 #Show images.
 i:
